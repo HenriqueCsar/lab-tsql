@@ -78,7 +78,7 @@ insert into HierarquiaNivel values('Gustavo', 'Gerente', 1, 1)
 insert into HierarquiaNivel values('Renata', 'Gerente', 1, 1)
 
 /*Gerente do Rodrigo*/
-insert into HierarquiaNivel values('Renata', 'Gerente', 1, 2)
+insert into HierarquiaNivel values('Carlos', 'Gerente', 1, 2)
 
 
 /* Terceiro Nível*/
@@ -88,6 +88,10 @@ insert into HierarquiaNivel values('Pedro', 'Analista', 1, 2)
 /*Analista Gerente*/
 insert into HierarquiaNivel values('Camila', 'Analista', 1, 5)
 
+/*Analista Gerente Rodrigo*/
+insert into HierarquiaNivel values('Raquel', 'Analista', 1, 6)
+
+
 
 
 select * from HierarquiaNivel
@@ -95,8 +99,12 @@ select * from HierarquiaNivel
 
 /*Query Hierarquia Nível*/
 
-select c.*
+select *
 from HierarquiaNivel a with(nolock)
 join HierarquiaNivel b with(nolock) on b.HierarquiaNivelId = a.id
 join HierarquiaNivel c with(nolock) on c.HierarquiaNivelId = b.id
 where a.id = 2
+
+
+select MAX(id) from HierarquiaNivel
+where HierarquiaNivelId is null
