@@ -41,9 +41,31 @@ select COUNT(*) from testecte2 with(nolock)
 
 
 WITH testecte AS (
-	SELECT * FROM testecte2-- WHERE [name] = 'Renata';
+	SELECT * FROM testecte2 WHERE nota = 10
 )
-	SELECT * FROM testecte WHERE [name] = 'Renata';
+SELECT * FROM testecte WHERE [name] = 'Renata';
 
+
+
+drop table if exists hierarquia
+create table hierarquia (
+	id int identity(1,1),
+	nome varchar(200)
+)
+
+
+insert into hierarquia values('Comercial')
+
+
+select * from hierarquia with(nolock)
+
+
+drop table if exists hierarquia_nivel
+create table hierarquia_nivel (
+	id int identity(1,1),
+	nome varchar(200),
+
+	hierarquiaid int,
+)
 
 
