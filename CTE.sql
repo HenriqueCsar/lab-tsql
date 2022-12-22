@@ -108,6 +108,12 @@ join HierarquiaNivel c with(nolock) on c.HierarquiaNivelId = b.id
 
 
 
+with Hierarquia as (
+select * from HierarquiaNivel where id = 6
+)
+select * from Hierarquia b where nome = 'Camila'
+
+
 
 
 select MAX(id) from HierarquiaNivel
