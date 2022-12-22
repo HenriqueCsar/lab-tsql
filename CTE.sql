@@ -60,12 +60,13 @@ insert into hierarquia values('Comercial')
 select * from hierarquia with(nolock)
 
 
-drop table if exists hierarquia_nivel
-create table hierarquia_nivel (
+drop table if exists HierarquiaNivel
+create table HierarquiaNivel (
 	id int identity(1,1),
 	nome varchar(200),
-
+	descricao varchar(100),
 	hierarquiaid int,
+	HierarquiaNivelId int,
 )
 
 
