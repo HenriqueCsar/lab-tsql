@@ -70,10 +70,21 @@ create table HierarquiaNivel (
 )
 
 /*Primeiro Nível*/
-insert into HierarquiaNivel values('João', 'Analista', 1, null)
+insert into HierarquiaNivel values('João', 'Adminsitrador', 1, null)
 
 /* Segundo Nível*/
-insert into HierarquiaNivel values('Gustavo', 'Analista', 1, null)
+insert into HierarquiaNivel values('Gustavo', 'Gerente', 1, 1)
+
+/* Terceiro Nível*/
+insert into HierarquiaNivel values('Ricardo', 'Gerente', 1, 1)
+
 
 
 select * from HierarquiaNivel
+
+
+/*Query Hierarquia Nível*/
+
+select * 
+from HierarquiaNivel a with(nolock)
+join HierarquiaNivel b with(nolock) on b.HierarquiaNivelId = a.id
