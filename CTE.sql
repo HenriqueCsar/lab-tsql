@@ -49,7 +49,7 @@ SELECT * FROM testecte WHERE [name] = 'Renata';
 
 drop table if exists hierarquia
 create table hierarquia (
-	id int identity(1,1),
+	id int primary key identity(1,1),
 	nome varchar(200)
 )
 
@@ -65,8 +65,15 @@ create table HierarquiaNivel (
 	id int identity(1,1),
 	nome varchar(200),
 	descricao varchar(100),
-	hierarquiaid int,
+	hierarquiaid int foreign key references hierarquia(id),
 	HierarquiaNivelId int,
 )
 
+/*Primeiro Nível*/
+insert into HierarquiaNivel values('João', 'Analista', 1, null)
 
+/* Segundo Nível*/
+insert into HierarquiaNivel values('Gustavo', 'Analista', 1, null)
+
+
+select * from HierarquiaNivel
