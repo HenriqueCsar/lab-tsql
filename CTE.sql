@@ -71,12 +71,22 @@ create table HierarquiaNivel (
 
 /*Primeiro Nível*/
 insert into HierarquiaNivel values('João', 'Adminsitrador', 1, null)
+insert into HierarquiaNivel values('Rodrigo', 'Adminsitrador', 1, null)
 
 /* Segundo Nível*/
 insert into HierarquiaNivel values('Gustavo', 'Gerente', 1, 1)
+insert into HierarquiaNivel values('Renata', 'Gerente', 1, 1)
+
+/*Gerente do Rodrigo*/
+insert into HierarquiaNivel values('Renata', 'Gerente', 1, 2)
+
 
 /* Terceiro Nível*/
-insert into HierarquiaNivel values('Ricardo', 'Gerente', 1, 1)
+insert into HierarquiaNivel values('Ricardo', 'Analista', 1, 2)
+insert into HierarquiaNivel values('Pedro', 'Analista', 1, 2)
+
+/*Analista Gerente*/
+insert into HierarquiaNivel values('Camila', 'Analista', 1, 5)
 
 
 
@@ -85,6 +95,8 @@ select * from HierarquiaNivel
 
 /*Query Hierarquia Nível*/
 
-select * 
+select c.*
 from HierarquiaNivel a with(nolock)
 join HierarquiaNivel b with(nolock) on b.HierarquiaNivelId = a.id
+join HierarquiaNivel c with(nolock) on c.HierarquiaNivelId = b.id
+where a.id = 2
