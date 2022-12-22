@@ -1,8 +1,49 @@
-create table testecte()
-
-WITH cte AS (
-  SELECT * FROM table1 WHERE column1 = 'value1'
+create table testecte(
+	name varchar(200),
+	nota int
 )
-SELECT * FROM cte WHERE column2 = 'value2';
+
+insert into testecte values('Olivia', 10)
+insert into testecte values('Ricardo', 10)
+insert into testecte values('Fátima', 10)
+insert into testecte values('Pamela', 10)
+insert into testecte values('Jonatas', 10)
+insert into testecte values('Antônio', 10)
+insert into testecte values('Mateus', 10)
+insert into testecte values('Renata', 10)
+
+
+create table testecte2(
+	name varchar(200),
+	nota int
+)
+
+insert into testecte2 values('Olivia', 10)
+insert into testecte2 values('Ricardo', 10)
+insert into testecte2 values('Fátima', 10)
+insert into testecte2 values('Pamela', 10)
+insert into testecte2 values('Jonatas', 10)
+insert into testecte2 values('Antônio', 10)
+insert into testecte2 values('Mateus', 10)
+insert into testecte2 values('Renata', 10)
+insert into testecte2 values('Olivia', 10)
+insert into testecte2 values('Ricardo', 10)
+insert into testecte2 values('Fátima', 10)
+insert into testecte2 values('Pamela', 10)
+insert into testecte2 values('Jonatas', 10)
+insert into testecte2 values('Antônio', 10)
+insert into testecte2 values('Mateus', 10)
+insert into testecte2 values('Renata', 10)
+
+
+select COUNT(*) from testecte with(nolock)
+select COUNT(*) from testecte2 with(nolock)
+
+
+WITH testecte AS (
+	SELECT * FROM testecte2-- WHERE [name] = 'Renata';
+)
+	SELECT * FROM testecte WHERE [name] = 'Renata';
+
 
 
